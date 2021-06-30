@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static '/css/pageAccordian.css' %}">
+
+  <title>Back-end</title>
+</head>
+
+<body>
+  <nav class="topNav" onmouseover="mainHover()">
+    <div class="navLeftTop">
+      <img src="../static/imgs/logo.png" class="img-fluid" style="margin-left: 30px; height: 50px" alt="" />
+      <div class="search__container">
+        <input class="search__input" type="text" placeholder="Search" />
+      </div>
+    </div>
+    <div class="navRightTop">
+      <p class="avatarName">
+        <i>Welcome</i> <br />
+        <b>Gourav Shrivastava</b>
+      </p>
+      <img class="roundAvatar" src="http://i.stack.imgur.com/Dj7eP.jpg" />
+    </div>
+  </nav>
+  <div style="display: flex; ">
+
+    <nav class="nav__cont">
+      <ul class="nav">
+        <li class="nav__items ">
+          <a href=""><i class="fa fa-home" style="font-size: 30px;"></i>&nbsp;<span>Home</span></a>
+        </li>
+
+        <li class="nav__items ">
+          <a href=""><i class="fa fa-plus" style="font-size: 30px;"></i>&nbsp;<span>New Claim</span></a>
+        </li>
+
+        <li class="nav__items ">
+          <a href=""><i class="fa fa-envelope" style="font-size: 30px;"></i>&nbsp;<span>Inbox</span></a>
+        </li>
+
+        <li class="nav__items ">
+          <a href=""><i class="fa fa-user-circle" style="font-size: 30px;"></i>&nbsp;<span>Profile</span></a>
+        </li>
+      </ul>
+    </nav>
+
+
+    <div class="main" onmouseover="mainHover()" style="width: 85%;">
+      <div class="accordianHeader">
+        <div class="container" style="width: 100%;">
+          <div class="row" style="margin-top: 5em;">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                      aria-expanded="true" aria-controls="collapseOne">
+                      Details of TPA / Insurance Company
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="panel-body">
+                    <label for="cars">Insurance Company / TPA</label>
+
+                    <select class="form-control" name="cars" id="cars">
+                      <option value="volvo">1</option>
+                      <option value="saab">Saab</option>
+                      <option value="mercedes">Mercedes</option>
+                      <option value="audi">Audi</option>
+                    </select>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                      href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Patient Details
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="panel-body">
+
+                    <div class="row">
+                      <div class="column">
+                        <label for="exampleInputEmail1">Patient Name</label>
+                        <input class="form-control" name="patient_details" type="text"
+                          value="{{data.patient_details.name}}">
+                        <label for="cars">Gender :</label>
+                        <select class="form-control" id="cars1" name="gender_data">
+                          <option value="male">Male</option>
+                          <option type="checkbox" value="female">Female</option>
+                          <option type="checkbox" value="Transgender">
+                            Transgender
+                          </option>
+
+                        </select>
+                        <label for="exampleInputEmail1">Age : Year</label>
+                        <input class="form-control" name="age" type="number" value="{{data.patient_details.age}}">
+                        <label for="exampleInputEmail1">Age : Month</label>
+                        <input class="form-control" name="age" type="number" value="{{data.patient_details.age}}">
+                        <label for="exampleInputEmail1">Date</label>
+                        <input class="form-control" name="date" type="date" value="">
+
+                        <label for="exampleInputEmail1">Patient Contact Number</label>
+                        <input class="form-control" name="patient_contact_number" type="number"
+                          value="{{data.patient_details.patient_contact_number}}">
+
+                        <label for="exampleInputEmail1">Contact Number of Attending Relative</label>
+                        <input class="form-control" name="patient_email" type="text"
+                          value="{{data.patient_details.patient_email}}">
+
+                        <label for="exampleInputEmail1">Insured Member ID Card No.</label>
+                        <input class="form-control" name="patient_email" type="text"
+                          value="{{data.patient_details.patient_email}}">
+                      </div>
+                      <div class="column">
+
+                        <label for="exampleInputEmail1">Policy Number / Corporate Name </label>
+                        <input class="form-control" name="patient_email" type="text"
+                          value="{{data.patient_details.patient_email}}">
+
+                        <label for="exampleInputEmail1">Employee ID</label>
+                        <input class="form-control" name="patient_email" type="text"
+                          value="{{data.patient_details.patient_email}}">
+
+                        <label for="exampleInputEmail1">Curruntly Do You Have Any Health Insurance</label>
+
+                        <input type="radio" name="checkbox" value="checkbox" id="nanana"> Yes
+                        <input type="radio" name="checkbox" value="checkbox" id="nanana2"> No
+                        <div class="onclickYes" id="onclickYes">
+
+                        </div>
+
+                        <label for="exampleInputEmail1">Do You Have a Family Physician</label>
+
+                        <input type="radio" name="checkbox" value="checkbox" id="physicianYes"> Yes
+                        <input type="radio" name="checkbox" value="checkbox" id="physicianNo"> No
+                        <div class="onclickYes" id="onclickYesPhysician">
+
+                        </div>
+                        <label for="exampleInputEmail1">Current Address </label>
+                        <input class="form-control" name="current_address" type="text"
+                          value="{{data.patient_details.Address}}">
+
+                        <label for="exampleInputEmail1">Occupation</label>
+                        <input class="form-control" name="current_address" type="text"
+                          value="{{data.patient_details.Address}}">
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                      href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Doctor and Diagnosis Details
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="column">
+                        <label for="exampleInputEmail1">Name of The Treating Doctor</label>
+                        <input class="form-control" name="name_treating_doctor" type="text"
+                          value="{{data.patient_details.name}}">
+
+                        <label for="exampleInputEmail1">Contact Number</label>
+                        <input class="form-control" name="contact_num" type="tel" value="{{data.patient_details.age}}">
+
+                        <label for="exampleInputEmail1">Nature of Liness / Disease With Presenting complaints</label>
+                        <input class="form-control" name="name_treating_doctor" type="text"
+                          value="{{data.patient_details.name}}">
+
+                        <label for="exampleInputEmail1">Relevant Clinic Findings</label>
+                        <input class="form-control" name="name_treating_doctor" type="text"
+                          value="{{data.patient_details.name}}">
+
+                        <label for="exampleInputEmail1">Duration of Present Aliment</label>
+                        <input class="form-control" name="name_treating_doctor" type="text"
+                          value="{{data.patient_details.name}}">
+
+                        <label for="exampleInputEmail1">Date Of First Consultation</label>
+                        <input class="form-control" name="name_treating_doctor" type="date"
+                          value="{{data.patient_details.name}}">
+
+                        <label for="exampleInputEmail1">Past History Of Present Aliment , If Any</label>
+                        <input class="form-control" name="name_treating_doctor" type="text"
+                          value="{{data.patient_details.name}}">
+
+                        <label for="exampleInputEmail1">Provisional Diagnosis</label>
+                        <input class="form-control" name="name_treating_doctor" type="text"
+                          value="{{data.patient_details.name}}">
+
+                        <label for="exampleInputEmail1">ICD Code </label>
+                        <input class="form-control" name="name_treating_doctor" type="tel"
+                          value="{{data.patient_details.name}}">
+
+                        <label for="exampleInputEmail1">Proposed Line Of Treatment</label> <br>
+                        <input name="radio" id="madical_managment" type="radio"> Medical Managment &nbsp;&nbsp;&nbsp;
+                        <input name="radio" id="surgical" type="radio"> Surgical Managment <br>
+                        <input name="radio" id='intensiveCare' type="radio"> Intensive Care &nbsp;&nbsp;&nbsp;
+                        <input name="radio" id="investigation" type="radio"> Investigation <br>
+                        <input name="radio" id='nonAllopathic' type="radio"> Non Allopathic Treatment <br>
+
+                        <div id="forLineOfTreatment">
+                          <!-- for surgical -->
+                        </div>
+
+                      </div>
+
+                      <div class="column">
+                        <label for="exampleInputEmail1">If Other Tratment Provide Details</label>
+                        <input class="form-control" name="patient_email" type="text"
+                          value="{{data.patient_details.patient_email}}">
+
+                        <label for="exampleInputEmail1">How Did Injury Occure</label>
+                        <input class="form-control" name="patient_email" type="text"
+                          value="{{data.patient_details.patient_email}}">
+
+                        <label for="exampleInputEmail1">In Case Of Accident ,Is It RTA</label> <br>
+                        <input type="radio" name="checkbox"> Yes
+                        <input type="radio" name="checkbox"> No <br>
+
+                        <label for="exampleInputEmail1">Date Of Injury</label>
+                        <input class="form-control" name="patient_email" type="date"
+                          value="{{data.patient_details.patient_email}}">
+
+                        <label for="exampleInputEmail1">Reported To Police</label> <br>
+                        <input type="radio" name="checkbox" id='policeReportYes'> Yes
+                        <input type="radio" name="checkbox" id='policeReportNo'> No <br>
+
+                        <div id="forFirNum">
+                          <!-- for fir -->
+                        </div>
+
+                        <label for="exampleInputEmail1">Injury/Disease Caused Due To Substance Abuse / Alcohol
+                          Consumption</label> <br>
+                        <input type="radio" name="checkbox" value="checkbox" id="nanana"> Yes
+                        <input type="radio" name="checkbox" value="checkbox" id="nanana2"> No <br>
+
+                        <label for="exampleInputEmail1">Test Alcohol To Establish This</label> <br>
+                        <input type="radio" name="checkbox" value="checkbox" id="nanana" onclick="testAlcohol()"> Yes
+                        <input type="radio" name="checkbox" value="checkbox" id="nanana2"> No <br>
+
+                        <label for="exampleInputEmail1">In Case Maternity</label> <br>
+                        <input type="checkbox" name="checkbox" value="checkbox" id="nanana"> G
+                        <input type="checkbox" name="checkbox" value="checkbox" id="nanana"> P
+                        <input type="checkbox" name="checkbox" value="checkbox" id="nanana"> L
+                        <input type="checkbox" name="checkbox" value="checkbox" id="nanana"> A <br>
+
+                        <label for="exampleInputEmail1">Expected Date Of Delivery</label>
+                        <input class="form-control" name="patient_email" type="date"
+                          value="{{data.patient_details.patient_email}}">
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                      href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                      Admission Details
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="column">
+                        <label for="exampleInputEmail1">Date Of Admission</label>
+                        <input class="form-control" name="name_treating_doctor" type="date"
+                          value="{{data.patient_details.name}}">
+
+                        <label for="exampleInputEmail1">Is This a Emergency Planned Hospitalization Event ?</label> <br>
+                        <input type="checkbox" name="" id=""> &nbsp;&nbsp;&nbsp; Emergency &nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" name="" id=""> &nbsp;&nbsp;&nbsp;Planned <br>
+
+                        <label for="exampleInputEmail1">Expected No. Of Days Stay In Hospital </label>
+                        <input class="form-control" name="name_treating_doctor" type="number"
+                          value="{{data.patient_details.name}}">
+
+                        <label for="exampleInputEmail1">Days In ICU</label>
+                        <input class="form-control" name="name_treating_doctor" type="number"
+                          value="{{data.patient_details.name}}">
+
+                        <label for="exampleInputEmail1">Room Type</label>
+                        <input class="form-control" name="name_treating_doctor" type="text"
+                          value="{{data.patient_details.name}}">
+
+                        <label for="exampleInputEmail1">Per Day Room Rent + Nursing & Services Charge + Patient
+                          Diet</label>
+                        <input class="form-control" name="name_treating_doctor" type="number"
+                          value="{{data.patient_details.name}}" placeholder="">
+
+                        <label for="exampleInputEmail1">Expected Cost For Investigation + Diagnostics</label>
+                        <input class="form-control" name="name_treating_doctor" type="number"
+                          value="{{data.patient_details.name}}" placeholder="">
+
+                        <label for="exampleInputEmail1">ICU Charge</label>
+                        <input class="form-control" name="name_treating_doctor" type="number"
+                          value="{{data.patient_details.name}}" placeholder="">
+
+                        <label for="exampleInputEmail1">OT Charge</label>
+                        <input class="form-control" name="name_treating_doctor" type="number"
+                          value="{{data.patient_details.name}}" placeholder="">
+
+                        <label for="exampleInputEmail1">Professional Fees Surgeon + Anesthetist Fees + Consultation
+                          Charge</label>
+                        <input class="form-control" name="name_treating_doctor" type="number"
+                          value="{{data.patient_details.name}}" placeholder="">
+
+                        <label for="exampleInputEmail1">Medicine + Consumables + Cost of Implants (If Applicable Please
+                          Specify)</label>
+                        <input class="form-control" name="name_treating_doctor" type="number"
+                          value="{{data.patient_details.name}}" placeholder="">
+
+                        <label for="exampleInputEmail1">Other Hospital If Any</label>
+                        <input class="form-control" name="name_treating_doctor" type="number"
+                          value="{{data.patient_details.name}}" placeholder="">
+
+                        <label for="exampleInputEmail1">All Include Package Charges If Any Applicable</label>
+                        <input class="form-control" name="name_treating_doctor" type="number"
+                          value="{{data.patient_details.name}}" placeholder="">
+
+                        <label for="exampleInputEmail1">Sum Total Expected Cost Of Hospitalization</label>
+                        <input class="form-control" name="name_treating_doctor" type="number"
+                          value="{{data.patient_details.name}}" placeholder="">
+
+                      </div>
+
+                      <div class="column">
+                        <label for="exampleInputEmail1">Mandatory Past History Of Any Chronic Illness If Yes, Since
+                          (month / year)</label>
+                        <p>i) Diabetes</p>
+                        <div style="display: flex; justify-content: space-evenly;">
+                          <input type="number" class="form-control" placeholder="Month"> <input class="form-control"
+                            type="number" placeholder="Year">
+                        </div>
+                        <p>ii) Heart Disease</p>
+                        <div style="display: flex; justify-content: space-evenly;">
+
+                          <input type="number" class="form-control" placeholder="Month"> <input class="form-control"
+                            type="number" placeholder="Year">
+                        </div>
+                        <p>iii) Hypertension</p>
+                        <div style="display: flex; justify-content: space-evenly;">
+
+                          <input type="number" class="form-control" placeholder="Month"> <input class="form-control"
+                            type="number" placeholder="Year">
+                        </div>
+                        <p>iv) Hyperlipidemias</p>
+                        <div style="display: flex; justify-content: space-evenly;">
+                          <input type="number" class="form-control" placeholder="Month"> <input class="form-control"
+                            type="number" placeholder="Year">
+                        </div>
+                        <p>v) Osteoarthritis</p>
+                        <div style="display: flex; justify-content: space-evenly;">
+
+                          <input type="number" class="form-control" placeholder="Month"> <input class="form-control"
+                            type="number" placeholder="Year">
+                        </div>
+                        <p>vi) Asthma / COPD / Bronchitis</p>
+                        <div style="display: flex; justify-content: space-evenly;">
+
+                          <input type="number" class="form-control" placeholder="Month"> <input class="form-control"
+                            type="number" placeholder="Year">
+                        </div>
+                        <p>vii) Cancer</p>
+                        <div style="display: flex; justify-content: space-evenly;">
+
+                          <input type="number" class="form-control" placeholder="Month"> <input class="form-control"
+                            type="number" placeholder="Year">
+                        </div>
+                        <p>viii) Alcohol or Drug Abuse</p>
+                        <div style="display: flex; justify-content: space-evenly;">
+
+                          <input type="number" class="form-control" placeholder="Month"> <input class="form-control"
+                            type="number" placeholder="Year">
+                        </div>
+                        <p for="exampleInputEmail1">ix) Any HIV or STD / Related Aliments</p>
+                        <div style="display: flex; justify-content: space-evenly;">
+                          <input type="number" class="form-control" placeholder="Month"> <input class="form-control"
+                            type="number" placeholder="Year">
+                        </div>
+                        <p>Any Other Aliments Give Details</p>
+                        <input class="form-control" name="name_treating_doctor" type="text"
+                          value="{{data.patient_details.name}}" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+{% load static %}
+<script src="{% static '/js/pageAccordian.js' %}"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+  integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+  integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</html>

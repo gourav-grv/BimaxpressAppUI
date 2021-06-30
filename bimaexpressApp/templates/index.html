@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static '/css/index.css' %}">
+
+  <title>Back-end</title>
+</head>
+
+<body>
+  <nav class="topNav" onmouseover="mainHover()">
+    <div class="navLeftTop">
+      <img src="../static/imgs/logo.png" class="img-fluid" style="margin-left: 30px; height: 50px" alt="" />
+      <div class="search__container">
+        <input class="search__input" type="text" placeholder="Search" />
+      </div>
+    </div>
+    <div class="navRightTop">
+      <p class="avatarName">
+        <i>Welcome</i> <br />
+        <b>Gourav Shrivastava</b>
+      </p>
+      <img class="roundAvatar" src="http://i.stack.imgur.com/Dj7eP.jpg" />
+    </div>
+  </nav>
+  <div style="display: flex; justify-content: space-around">
+    <div class="sidenav" onmouseover="navHover()" id="sidenav">
+      <div><i class="glyphicon glyphicon-home activeIcon"></i></div>
+      <div><i class="glyphicon glyphicon-plus"></i></div>
+      <div><i class="glyphicon glyphicon-envelope"></i></div>
+      <div><i class="glyphicon glyphicon-user"></i></div>
+      <div><i class="glyphicon glyphicon-cog"></i></div>
+    </div>
+    <div class="main" onmouseover="mainHover()" style="width: 85%">
+      <div class="homeUpperCards" id="homeUpperCards">
+
+        <div class="cardTop rgb(167, 47, 67)" onclick="Drafts()">
+          <h1 style="color: rgb(167, 47, 67);"><b>2</b></h1>
+          <span style="color: rgb(167, 47, 67);">Drafts</span>
+        </div>
+        <div class="cardTop skyblue" onclick="Unprocessed()">
+          <h1 style="color: skyblue;"><b>3</b></h1>
+          <span style="color: skyblue;">Unprocessed</span>
+        </div>
+        <div class="cardTop darkblue" onclick="NMI()">
+          <h1 style="color: darkblue;"><b>1</b></h1>
+          <span style="color: darkblue;">NMI</span>
+        </div>
+        <div class="cardTop lightgreen" onclick="Approved()">
+          <h1 style="color: lightgreen;"><b>5</b></h1>
+          <span style="color: lightgreen;">Approved</span>
+        </div>
+        <div class="cardTop red" onclick="Rejected()">
+          <h1 style="color: red;"><b>7</b></h1>
+          <span style="color: red;">Rejected</span>
+        </div>
+        <div class="cardTop orange" onclick="Enhance_Discharge()">
+          <h1 style="color: orange;"><b>3</b></h1>
+          <span style="color: orange;">Enhance Discharge</span>
+        </div>
+        <div class="cardTop rgb(9, 163, 9)" onclick="Discharge_Approved()">
+          <h1 style="color: rgb(9, 163, 9);"><b>2</b></h1>
+          <span style="color: rgb(9, 163, 9);">Discharge Approved</span>
+        </div>
+        <div class="cardTop black" onclick="All_Processed()">
+          <h1 style="color: black;"><b>33</b></h1>
+          <span style="color: black;">All Processed</span>
+        </div>
+      </div>
+      <div class="homeMiddleLineForListAndGrid" id="homeMiddleLineForListAndGrid">
+        <i class="glyphicon glyphicon-th-large text-white GridLIst" id="grid" onclick="Grid()"></i>
+        <i class="glyphicon glyphicon-th-list text-white GridLIst" id="list" onclick="List()"></i>
+        <span style="color: white; margin-top: 10px;"><b>&nbsp;Approved</b></span>
+        <i class="glyphicon glyphicon-user text-white floatRight"></i>
+        <span style="color: white; margin-top: 10px;" class="floatRight"><b>&nbsp;05</b></span>
+      </div>
+      <div class="homeBottomCards" style="display: flex;" id="homeBottomCards">
+        {% for i in bottom_card %}
+
+        <div class="cardBottom" id="cardBottom" name="cardBottom" onclick="location.href = '/pageAccordian'">
+          <h4>{{i.name}}</h4>
+          <p>{{i.email}}</p>
+          <p>{{i.contact}}</p>
+          <hr>
+          <p><b>Status -</b>{{i.status}}</p>
+          <p><b>Admission date -</b>{{i.admission_date}}</p>
+          <p><b>Claim amount -</b>{{i.claim_amount}}</p>
+          <p><b>Insurance/TPA -</b>{{i.tpa}}</p>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+{% load static %}
+<script src="{% static 'js/js.js' %}"></script>
+
+</html>
